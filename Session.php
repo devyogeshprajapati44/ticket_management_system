@@ -1,0 +1,20 @@
+<?php
+ob_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
+if(isset($_SESSION['PFC_UID']))
+{
+    $PFC_UID=$_SESSION['PFC_UID'];
+    $PFC_EmpName=$_SESSION['PFC_EmpName'];
+    $PFC_EmpRole=$_SESSION['PFC_EmpRole'];
+    $PFC_EmpStatus=$_SESSION['PFC_EmpStatus'];
+    $PFC_EmpID=$_SESSION['PFC_EmpID'];
+    $LoginTime=$_SESSION['LAST_ACTIVITY'];
+    $LoginIpAddress=$_SESSION['IpAddress'];
+}else
+{
+    echo'<script>alert("Session Has Timed-Out.Please Log-in again")</script>';
+    header("location:Logout.php");
+}
